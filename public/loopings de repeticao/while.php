@@ -12,5 +12,5 @@ while ($i < count ($name)) {
 
 }
 
-echo '<hr>';
+echo '<hr> ';
 
