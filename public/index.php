@@ -1,0 +1,3 @@
+<?
+
+echo 'ola caraio';

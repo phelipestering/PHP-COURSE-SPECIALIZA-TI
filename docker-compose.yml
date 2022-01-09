@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  app: 
+    image: nginx:alpine
+    ports: 
+      - 80:80
+    restart: always
+    volumes:
+      - ./docker/nginx/:/etc/nginx/conf.d/
+      - ./:/var/www
+    networks:
+      - php
+
+  php:
+    image: php:7.4-fpm
+    volumes:
+    - ./:/var/www
+    networks:
+      - php
+  
+  mysql:
+      platform: linux/x86_64
+      image: mysql:5.7.22
+      ports:
+          - 3309:3306
+      environment:
+          MYSQL_ROOT_PASSWORD: '1234'
+          MYSQL_ROOT_HOST: "%"
+          MYSQL_DATABASE: 'cursophp'
+          MYSQL_USER: 'phelipe'
+          MYSQL_PASSWORD: '1234'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      volumes:
+        - ./.docker/mysql:/var/lib/mysql
+      networks:
+          - php
+      
+networks:
+    php:
+      driver: bridge
+
