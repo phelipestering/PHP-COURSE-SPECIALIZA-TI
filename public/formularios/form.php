@@ -4,23 +4,25 @@
 
 // SEJA POST, GET OU ANY
 
-
-
-echo "Nome: {$_REQUEST['nome']}";
-echo '<hr>';
-echo "Senha: {$_REQUEST['senha']}";
-echo '<hr>';
-echo "Email: {$_REQUEST['email']}";
-echo '<hr>';
-echo "Concorda com os termos".isset($_REQUEST['concordo']) &&  $_REQUEST['concordo'] != '' ? 'CONCORDA COM OS TERMOS' : ' TERMO NAO ACEITADO';
-echo '<hr>';
-echo "Sexo : {$_REQUEST['sexo']}";
-echo '<hr>';
-echo "Estado: {$_REQUEST['estado']}";
-echo '<hr>';
-echo "Descricao: {$_REQUEST['descricao']}";
-echo '<hr>';
-
+if ($_REQUEST['nome'] != '' && strlen($_REQUEST['nome']) > 3 ){
+    
+    echo "Nome: {$_REQUEST['nome']}";
+    echo '<hr>';
+    echo "Senha: {$_REQUEST['senha']}";
+    echo '<hr>';
+    echo "Email: {$_REQUEST['email']}";
+    echo '<hr>';
+    echo "Concorda com os termos".isset($_REQUEST['concordo']) &&  $_REQUEST['concordo'] != '' ? 'CONCORDA COM OS TERMOS' : ' TERMO NAO ACEITADO';
+    echo '<hr>';
+    echo "Sexo : {$_REQUEST['sexo']}";
+    echo '<hr>';
+    echo "Estado: {$_REQUEST['estado']}";
+    echo '<hr>';
+    echo "Descricao: {$_REQUEST['descricao']}";
+    echo '<hr>';
+}else {
+    echo 'O campo nao cumpre os requisitos';
+}
 
 // RECUPERANDO PELO METODO POST
 
