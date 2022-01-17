@@ -14,9 +14,9 @@
 <body>
     <div class="container">
         <h1>UPLOAD DE ARQUIVOS</h1>
-        <form action="upload.php" class="form" method="POST"  enctype="multipart/form-data">
+        <form action="upload_mult.php" class="form" method="POST"  enctype="multipart/form-data">
             <div class="form-group">
-                <input type="file" name="image" class="form-control">
+                <input type="file" name="image[]" class="form-control" multiple>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Enviar</button>
